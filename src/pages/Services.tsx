@@ -1,73 +1,34 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Bot, Users, Phone, Megaphone, Settings, ArrowRight } from "lucide-react";
-
 const Services = () => {
-  const services = [
-    {
-      icon: Bot,
-      title: "AI Chatbot",
-      description: "Intelligent conversational agents that provide instant replies and 24/7 customer support. Handle inquiries, process orders, and deliver personalized experiences at scale.",
-      features: [
-        "Natural language processing",
-        "Multi-channel integration",
-        "Sentiment analysis",
-        "Automated escalation",
-        "Real-time analytics"
-      ]
-    },
-    {
-      icon: Users,
-      title: "AI Sales Agent",
-      description: "Autonomous sales agents that engage leads, qualify prospects, and book demos. Nurture your pipeline with personalized outreach and intelligent follow-ups.",
-      features: [
-        "Lead qualification",
-        "Demo scheduling",
-        "Follow-up automation",
-        "Pipeline management",
-        "Performance tracking"
-      ]
-    },
-    {
-      icon: Phone,
-      title: "AI Receptionist",
-      description: "Virtual receptionist that answers calls, schedules meetings, and manages appointments. Provide professional phone support without human intervention.",
-      features: [
-        "Call handling & routing",
-        "Appointment scheduling",
-        "Calendar integration",
-        "Message taking",
-        "Business hours management"
-      ]
-    },
-    {
-      icon: Megaphone,
-      title: "AI Marketing Team",
-      description: "Complete marketing automation with content creation, campaign management, and performance analytics. Scale your marketing efforts intelligently.",
-      features: [
-        "Content generation",
-        "Campaign automation",
-        "Social media management",
-        "Email marketing",
-        "Analytics & reporting"
-      ]
-    },
-    {
-      icon: Settings,
-      title: "Custom Agents",
-      description: "Tailored AI solutions built specifically for your unique business workflows. Get agents designed around your specific needs and processes.",
-      features: [
-        "Custom workflow design",
-        "API integrations",
-        "Industry-specific solutions",
-        "Scalable architecture",
-        "Ongoing optimization"
-      ]
-    }
-  ];
-
-  return (
-    <div className="pt-20">
+  const services = [{
+    icon: Bot,
+    title: "AI Chatbot",
+    description: "Intelligent conversational agents that provide instant replies and 24/7 customer support. Handle inquiries, process orders, and deliver personalized experiences at scale.",
+    features: ["Natural language processing", "Multi-channel integration", "Sentiment analysis", "Automated escalation", "Real-time analytics"]
+  }, {
+    icon: Users,
+    title: "AI Sales Agent",
+    description: "Autonomous sales agents that engage leads, qualify prospects, and book demos. Nurture your pipeline with personalized outreach and intelligent follow-ups.",
+    features: ["Lead qualification", "Demo scheduling", "Follow-up automation", "Pipeline management", "Performance tracking"]
+  }, {
+    icon: Phone,
+    title: "AI Receptionist",
+    description: "Virtual receptionist that answers calls, schedules meetings, and manages appointments. Provide professional phone support without human intervention.",
+    features: ["Call handling & routing", "Appointment scheduling", "Calendar integration", "Message taking", "Business hours management"]
+  }, {
+    icon: Megaphone,
+    title: "AI Marketing Team",
+    description: "Complete marketing automation with content creation, campaign management, and performance analytics. Scale your marketing efforts intelligently.",
+    features: ["Content generation", "Campaign automation", "Social media management", "Email marketing", "Analytics & reporting"]
+  }, {
+    icon: Settings,
+    title: "Custom Agents",
+    description: "Tailored AI solutions built specifically for your unique business workflows. Get agents designed around your specific needs and processes.",
+    features: ["Custom workflow design", "API integrations", "Industry-specific solutions", "Scalable architecture", "Ongoing optimization"]
+  }];
+  return <div className="pt-20">
       {/* Hero Section */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
@@ -88,14 +49,9 @@ const Services = () => {
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
           <div className="space-y-16">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className={`flex flex-col ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } items-center gap-12 animate-fade-in`}
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
+            {services.map((service, index) => <div key={index} className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 animate-fade-in`} style={{
+            animationDelay: `${index * 0.2}s`
+          }}>
                 {/* Service Icon & Info */}
                 <div className="flex-1 space-y-6">
                   <div className="flex items-center space-x-4">
@@ -110,15 +66,10 @@ const Services = () => {
                   <div className="space-y-2">
                     <h3 className="text-xl font-semibold mb-4">Key Features:</h3>
                     <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-center space-x-3 text-muted-foreground"
-                        >
+                      {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-center space-x-3 text-muted-foreground">
                           <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
                           <span>{feature}</span>
-                        </li>
-                      ))}
+                        </li>)}
                     </ul>
                   </div>
                   <Link to="/contact">
@@ -131,25 +82,9 @@ const Services = () => {
 
                 {/* Service Card */}
                 <div className="flex-1">
-                  <div className="glass-card p-8 rounded-2xl hover:scale-105 transition-all duration-300 floating">
-                    <div className="w-20 h-20 bg-gradient-secondary rounded-2xl flex items-center justify-center mb-6 mx-auto pulse-glow">
-                      <service.icon className="w-10 h-10 text-white" />
-                    </div>
-                    <h3 className="text-2xl font-bold text-center mb-4">{service.title}</h3>
-                    <p className="text-muted-foreground text-center leading-relaxed">
-                      Experience the power of AI automation tailored specifically for your business needs.
-                    </p>
-                    <div className="mt-6 text-center">
-                      <Link to="/contact">
-                        <Button className="btn-secondary px-6 py-2 rounded-full font-medium">
-                          Get Started
-                        </Button>
-                      </Link>
-                    </div>
-                  </div>
+                  
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -181,8 +116,6 @@ const Services = () => {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Services;
