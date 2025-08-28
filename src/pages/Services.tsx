@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Bot, Users, Phone, Megaphone, Settings, ArrowRight } from "lucide-react";
 const Services = () => {
   const services = [{
@@ -48,43 +49,47 @@ const Services = () => {
       {/* Services Grid */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4">
-          <div className="space-y-16">
-            {services.map((service, index) => <div key={index} className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"} items-center gap-12 animate-fade-in`} style={{
-            animationDelay: `${index * 0.2}s`
-          }}>
-                {/* Service Icon & Info */}
-                <div className="flex-1 space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-xl flex items-center justify-center">
-                      <service.icon className="w-8 h-8 text-white" />
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <Card key={index} className="glass-card p-6 h-full animate-fade-in" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
+                <CardHeader className="p-0 pb-6">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center">
+                      <service.icon className="w-6 h-6 text-white" />
                     </div>
-                    <h2 className="text-3xl md:text-4xl font-bold">{service.title}</h2>
+                    <CardTitle className="text-xl">{service.title}</CardTitle>
                   </div>
-                  <p className="text-lg text-muted-foreground leading-relaxed">
+                  <CardDescription className="text-muted-foreground leading-relaxed">
                     {service.description}
-                  </p>
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-semibold mb-4">Key Features:</h3>
+                  </CardDescription>
+                </CardHeader>
+                
+                <CardContent className="p-0 flex-1 flex flex-col">
+                  <div className="space-y-4 flex-1">
+                    <h4 className="font-semibold text-sm uppercase tracking-wide">Key Features</h4>
                     <ul className="space-y-2">
-                      {service.features.map((feature, featureIndex) => <li key={featureIndex} className="flex items-center space-x-3 text-muted-foreground">
-                          <div className="w-2 h-2 bg-gradient-primary rounded-full"></div>
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-center space-x-3 text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 bg-gradient-primary rounded-full flex-shrink-0"></div>
                           <span>{feature}</span>
-                        </li>)}
+                        </li>
+                      ))}
                     </ul>
                   </div>
-                  <Link to="/contact">
-                    <Button className="btn-hero px-6 py-3 rounded-full font-medium group mt-6">
-                      Know More
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </Link>
-                </div>
-
-                {/* Service Card */}
-                <div className="flex-1">
                   
-                </div>
-              </div>)}
+                  <div className="mt-6">
+                    <Link to="/contact">
+                      <Button className="btn-hero w-full rounded-full font-medium group">
+                        Know More
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
